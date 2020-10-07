@@ -1,37 +1,37 @@
 class TattoosController < ApplicationController
 
-  # GET: /tatto_os
-  get "/tatto_os" do
-    erb :"/tatto_os/index.html"
+  # GET: /tattoos
+  get "/tattoos" do
+    erb :"/tattoos/index.html"
   end
 
-  # GET: /tatto_os/new
-  get "/tatto_os/new" do
-    erb :"/tatto_os/new.html"
+  # GET: /tattoos/new
+  get "/tattoos/new" do
+    erb :"/tattoos/new.html"
   end
 
-  # POST: /tatto_os
-  post "/tatto_os" do
-    redirect "/tatto_os"
+  # POST: /tattoos
+  post "/tattoos" do
+    redirect "/tattoos"
   end
 
-  # GET: /tatto_os/5
-  get "/tatto_os/:id" do
-    erb :"/tatto_os/show.html"
+  # GET: /tattoos/5
+  get "/tattoos/:id" do
+    erb :"/tattoos/show.html"
   end
 
-  # GET: /tatto_os/5/edit
-  get "/tatto_os/:id/edit" do
-    erb :"/tatto_os/edit.html"
+  # GET: /tattoos/5/edit
+  get "/tattoos/:id/edit" do
+    erb :"/tattoos/edit.html"
   end
 
-  # PATCH: /tatto_os/5
-  patch "/tatto_os/:id" do
-    redirect "/tatto_os/:id"
+  # PATCH: /tattoos/5
+  patch "/tattoos/:id" do
+    redirect "/tattoos/:id"
   end
 
-  # DELETE: /tatto_os/5/delete
-  delete "/tatto_os/:id/delete" do
-    redirect "/tatto_os"
+  # DELETE: /tattoos/5/delete
+  delete "/tattoos/:id/delete" do
+    redirect "/tattoos"
   end
 end
