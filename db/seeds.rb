@@ -1,5 +1,5 @@
 3.times do
-    User.create(name: Faker::Name.name_with_middle, email: Faker::Internet.email, total_tattoos: rand(1..50), 
+    User.create(name: Faker::Name.name_with_middle, username: Faker::Internet.username, email: Faker::Internet.email, total_tattoos: rand(1..50), 
         age_first_tattoo: rand(16..31), fav_tattoo: Faker::Games::Pokemon.name)
 end
 
