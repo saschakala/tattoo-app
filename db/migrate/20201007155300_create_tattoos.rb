@@ -4,8 +4,8 @@ class CreateTattoos < ActiveRecord::Migration[5.2]
       t.string :image
       t.string :size
       t.string :color
+      t.string :artist_name
       t.integer :user_id
-      t.integer :artist_id
       t.timestamps null: false
     end
   end

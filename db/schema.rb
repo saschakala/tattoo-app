@@ -12,21 +12,12 @@
 
 ActiveRecord::Schema.define(version: 2020_10_07_155300) do
 
-  create_table "artists", force: :cascade do |t|
-    t.string "name"
-    t.integer "years_experience"
-    t.integer "price_hourly"
-    t.string "specializes_in"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "tattoos", force: :cascade do |t|
     t.string "image"
     t.string "size"
     t.string "color"
+    t.string "artist_name"
     t.integer "user_id"
-    t.integer "artist_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
