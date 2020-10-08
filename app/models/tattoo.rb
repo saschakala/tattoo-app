@@ -1,4 +1,4 @@
-class TATTOO < ActiveRecord::Base
+class Tattoo < ActiveRecord::Base
     belongs_to :users
     belongs_to :artists
 end

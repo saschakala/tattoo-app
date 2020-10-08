@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2020_10_07_155300) do
   create_table "tattoos", force: :cascade do |t|
     t.string "image"
     t.string "size"
-    t.string "colors"
+    t.string "color"
     t.integer "user_id"
     t.integer "artist_id"
     t.datetime "created_at", null: false

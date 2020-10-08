@@ -3,7 +3,7 @@ class CreateTattoos < ActiveRecord::Migration[5.2]
     create_table :tattoos do |t|
       t.string :image
       t.string :size
-      t.string :colors
+      t.string :color
       t.integer :user_id
       t.integer :artist_id
       t.timestamps null: false
