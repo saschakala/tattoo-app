@@ -2,36 +2,58 @@ class TattoosController < ApplicationController
 
   # GET: /tattoos
   get "/tattoos" do
-    erb :"/tattoos/index.html"
+    @tattoos = Tattoo.all
+    erb :"/tattoos/index"
   end
 
-  # GET: /tattoos/new
+  # # GET: /tattoos/new
   get "/tattoos/new" do
-    erb :"/tattoos/new.html"
+    erb :"/tattoos/new"
   end
 
-  # POST: /tattoos
+  # # POST: /tattoos
   post "/tattoos" do
-    redirect "/tattoos"
+    tattoo = current_user.tattoos.build(params)
+    if tattoo.save
+      redirect "/tattoos/#{tattoo.id}"
+    else
+      erb :"/tattoos/new" #fix to show error messages
+    end
   end
 
-  # GET: /tattoos/5
+  # # GET: /tattoos/5
   get "/tattoos/:id" do
-    erb :"/tattoos/show.html"
+    @tat = Tattoo.find_by_id(params[:id])
+    erb :"/tattoos/show"
   end
 
-  # GET: /tattoos/5/edit
+  # # GET: /tattoos/5/edit
   get "/tattoos/:id/edit" do
-    erb :"/tattoos/edit.html"
+    @tat = Tattoo.find_by_id(params[:id])
+    if @tat.user_id == current_user.id
+      erb :"/tattoos/edit"
+    else
+      redirect "/tattoos"
+    end
   end
 
-  # PATCH: /tattoos/5
+  # # PATCH: /tattoos/5
   patch "/tattoos/:id" do
-    redirect "/tattoos/:id"
+    @tat = Tattoo.find_by_id(params[:id])
+    params.delete("_method")
+    if @tat.update(params)
+        redirect "/tattoos/#{@tat.id}"
+    else
+      redirect "tattoos/new"
+    end
   end
 
-  # DELETE: /tattoos/5/delete
-  delete "/tattoos/:id/delete" do
+  # # DELETE: /tattoos/5/delete
+  delete "/tattoos/:id" do
+    @tat = Tattoo.find_by_id(params[:id])
+    if @tat.user_id == current_user.id
+        @tat.destroy
+    end
     redirect "/tattoos"
   end
 end

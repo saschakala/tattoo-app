@@ -1,0 +1,17 @@
+<h3> <%= @tat.image %> tattoo </h3>
+
+    <p>Size: <%= @tat.size %> </p>
+    <p>Color: <%= @tat.color %> </p>
+    <p>Artist: <%= @tat.artist_name %> </p>
+
+<% if @tat.user_id == current_user.id  %>
+    <h3> <a href="/tattoos/ <%= @tat.id %> /edit">Edit this listing</a></h3>
+    <form method="post" action="/tattoos/<%= @tat.id %>">
+    <input type="hidden" id="hidden" name="_method" value="delete">
+    <input type="submit" value="Delete this listing">
+</form>
+<% end %>
+
+      
+
+<%# show a link back to the full list of tattoos %>

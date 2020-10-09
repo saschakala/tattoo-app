@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
     has_secure_password
 
     validates :name, :username, :email, :total_tattoos, :age_first_tattoo, presence: true
-    validates :email, uniqueness: true
+    validates :username, :email, uniqueness: true
 end
 
 

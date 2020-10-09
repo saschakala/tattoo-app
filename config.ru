@@ -5,7 +5,9 @@ if ActiveRecord::Base.connection.migration_context.needs_migration?
 end
 
 
-use ArtistsController
+# use ArtistsController
+use Rack::MethodOverride
+use SessionsController
 use TattoosController
 use UsersController
 run ApplicationController

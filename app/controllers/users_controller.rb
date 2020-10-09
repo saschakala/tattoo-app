@@ -6,9 +6,11 @@ class UsersController < ApplicationController
   end
 
   post "/users" do
+    binding.pry
     @user = User.new(params)
-    if @user && @user.save #if no validation errors and it saves, log user in
+    if @user && @user.save #if no creation errors and it saves, log user in
       session[:user_id] = @user.id
+      redirect '/tattoos'
     else
       erb :"users/signup" #add error messages to sign up page for when there's a sign up error
     end
