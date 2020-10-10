@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
     has_many :tattoos
-    # has_many :artists, through: :tattoos
+    has_many :artists, through: :tattoos
 
     has_secure_password
 

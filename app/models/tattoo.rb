@@ -1,6 +1,6 @@
 class Tattoo < ActiveRecord::Base
-    belongs_to :users
-    # belongs_to :artists
+    belongs_to :user
+    belongs_to :artist
 
-    validates :image, :size, :color, :artist_name, :user_id, presence: true
+    validates :image, :size, :color, :user_id, presence: true
 end
