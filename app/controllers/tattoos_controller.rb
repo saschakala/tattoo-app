@@ -2,12 +2,14 @@ class TattoosController < ApplicationController
 
   # GET: /tattoos
   get "/tattoos" do
+    redirect_if_not_logged_in
     @tattoos = Tattoo.all
     erb :"/tattoos/index"
   end
 
   # # GET: /tattoos/new
   get "/tattoos/new" do
+    redirect_if_not_logged_in
     erb :"/tattoos/new"
   end
 
@@ -23,12 +25,14 @@ class TattoosController < ApplicationController
 
   # # GET: /tattoos/5
   get "/tattoos/:id" do
+    redirect_if_not_logged_in
     @tat = Tattoo.find_by_id(params[:id])
     erb :"/tattoos/show"
   end
 
   # # GET: /tattoos/5/edit
   get "/tattoos/:id/edit" do
+    redirect_if_not_logged_in
     @tat = Tattoo.find_by_id(params[:id])
     if @tat.user_id == current_user.id
       erb :"/tattoos/edit"

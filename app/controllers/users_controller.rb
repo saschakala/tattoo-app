@@ -2,11 +2,11 @@ class UsersController < ApplicationController
 
   # GET: /users
   get "/users/signup" do
+    redirect_if_logged_in
     erb :"/users/signup"
   end
 
   post "/users" do
-    binding.pry
     @user = User.new(params)
     if @user && @user.save #if no creation errors and it saves, log user in
       session[:user_id] = @user.id

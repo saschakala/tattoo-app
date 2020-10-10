@@ -1,3 +1,10 @@
+<% if @user && @user.errors %>
+    <% @user.errors.full_messages.each do | error | %>
+        <p><%= error %></p>
+        
+    <% end %>
+<% end %>
+
 <h1>Sign up here to be a part of the Tattoo-App community</h1>
 <form method="POST" action="/users">
     <p>Name: <input type="text" name="name"></p>
