@@ -10,16 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_07_155300) do
+ActiveRecord::Schema.define(version: 2020_10_11_040014) do
+
+  create_table "artists", force: :cascade do |t|
+    t.string "name"
+    t.integer "years_experience"
+    t.integer "price_hourly"
+    t.string "specializes_in"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "username"
+    t.string "email"
+    t.string "password_digest"
+  end
 
   create_table "tattoos", force: :cascade do |t|
     t.string "image"
     t.string "size"
     t.string "color"
-    t.string "artist_name"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "artist_id"
+    t.text "artist_commentary"
   end
 
   create_table "users", force: :cascade do |t|

@@ -18,11 +18,23 @@ class ApplicationController < Sinatra::Base
   helpers do
 
     def logged_in?
-      session[:user_id]
+      user_logged_in? || artist_logged_in?
+    end
+    
+    def user_logged_in?
+      !!session[:user_id]
+    end
+
+    def artist_logged_in?
+      !!session[:artist_id]
     end
 
     def current_user
       @user ||= User.find_by_id(session[:user_id])
+    end
+
+    def current_artist
+      @artist ||= Artist.find_by_id(session[:artist_id])
     end
 
     def redirect_if_not_logged_in

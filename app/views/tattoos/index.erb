@@ -1,7 +1,7 @@
 <h1>A list of all the tattoos currently logged:</h1>
     <ul>
         <% @tattoos.each do |tattoo| %>
-            <li> <a href="/tattoos/<%=tattoo.id%>"> <%= tattoo.image %> </a>, by artist <%= tattoo.artist_name %> </li>
+            <li> <a href="/tattoos/<%=tattoo.id%>"> <%= tattoo.image %> </a>, by artist <%= tattoo.artist.name %> </li>
         <% end %>
     </ul>   
 
