@@ -3,16 +3,23 @@
 <br>
 <form method="post" action="/tattoos/<%= @tat.id %>">
     <input type="hidden" id="hidden" name="_method" value="patch">
-        <p>Image: <input type="text" name="image" value=" <%= @tat.image %>"></p>
+        <p>Tattoo: <input type="text" name="image" value=" <%= @tat.image %>"></p>
         <p>Size: <select type ="text" name="size">
             <option selected disabled hidden> <%= @tat.size %> </option>
             <option value="small">small</option>
             <option value="medium">medium</option>
             <option value="large">large</option>
+            <option value="extra-large">extra-large</option>
         </select>
-        <p>Color: <input type="text" name="color" value="<%= @tat.color %>"></p>
-        <p>Artist's name: <input type="text" name="artist_name" value="<%= @tat.artist.name %>"></p>
+        <p>Colors: <input type="text" name="color" value="<%= @tat.color %>"></p>
+        <p>Style: <input type="text" name="style" value="<%= @tat.style %>"></p>
+        <p>Placement: <%= @tat.placement %></p>
+        <p>Description: <textarea name="description"><%= @tat.description %></textarea> </p>
+        <p><strong>Artist's name*: </strong><select name="artist_id">
+            <option selected disabled hidden>find your artist</option>
+                <% @artists.each do |artist|  %>
+                    <option value=" <%= artist.id %> "> <%= artist.name %> </option> 
+                <% end %>
+            </select> </p>
         <input type="submit" value="Update tattoo">
 </form>
-
- 

@@ -6,10 +6,12 @@ class SessionsController < ApplicationController
     end
 
     post '/login' do
-        if @user = User.find_by(username: params[:username]) && @user.authenticate(params[:password])
+        if User.find_by(username: params[:username]).authenticate(params[:password])
+            @user = User.find_by(username: params[:username])
             session[:user_id] = @user.id
             redirect "/tattoos"
-        elsif @artist = Artist.find_by(username: params[:username]) && @artist.authenticate(params[:password])
+        elsif Artist.find_by(username: params[:username]).authenticate(params[:password])
+            @artist = Artist.find_by(username: params[:username])
             session[:artist_id] = @artist.id
             redirect "/tattoos"
         else    

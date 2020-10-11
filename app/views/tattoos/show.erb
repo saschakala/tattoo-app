@@ -10,20 +10,18 @@
 
     <p><strong>Placement: </strong><%= @tat.placement %> </p>
 
-    <% !!if @tat.description == true %>
+    <% if !!@tat.description == true %>
         <p><strong>Description: </strong><%= @tat.description %> </p>
     <% end %>
 
-<% case %>
-    <% when !!@tat.artist == true %>
+
+    <% if !!@tat.artist == true %>
         <p><strong>Artist: </strong>
             <a href="/artists/<%= @tat.artist_id %>"> <%= @tat.artist.name %> </a>
         </p>
-    <% when !!@tat.name_of_artist == true %>
+    <% elsif !!@tat.name_of_artist == true %>
         <p><strong> Artist's name: </strong> <%= @tat.name_of_artist%></p>
-    <% end %>
-   
-
+<% end %>
    
 
 
