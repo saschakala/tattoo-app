@@ -4,7 +4,7 @@
 ## Description
 This app was created with the intention of connecting tattoo enthusiasts with the artists who decorate them (because what this world truly needs is one more social media app). 
 
-It allows you to join as a User or an Artist, log and edit details for tattoos that you've received or created, and see profile pages for artists/
+It allows you to join as a User or an Artist, log and edit details for tattoos that you've received or created, and see profile pages for artists.
 
 ## Install Instructions
 
