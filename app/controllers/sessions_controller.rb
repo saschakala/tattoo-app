@@ -6,23 +6,15 @@ class SessionsController < ApplicationController
     end
 
     post '/login' do
-        case 
-        when @user = User.find_by(username: params[:username])
-            if @user && @user.authenticate(params[:password])
-                session[:user_id] = @user.id
-                redirect "/tattoos"
-            else    
-                flash[:login_issue] = "You've entered an invalid username or password - please try again."
-                redirect "sessions/login"
-            end
-        when @artist = Artist.find_by(username: params[:username])
-            if @artist && @artist.authenticate(params[:password])
-                session[:artist_id] = @artist.id
-                redirect "/tattoos"
-            else    
-                flash[:login_issue] = "You've entered an invalid username or password - please try again."
-                redirect "sessions/login"
-            end
+        if @user = User.find_by(username: params[:username]) && @user.authenticate(params[:password])
+            session[:user_id] = @user.id
+            redirect "/tattoos"
+        elsif @artist = Artist.find_by(username: params[:username]) && @artist.authenticate(params[:password])
+            session[:artist_id] = @artist.id
+            redirect "/tattoos"
+        else    
+            flash[:login_issue] = "You've entered an invalid username or password - please try again."
+            redirect "/login"
         end
     end
 

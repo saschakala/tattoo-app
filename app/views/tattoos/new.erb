@@ -1,15 +1,29 @@
 <h1>Log a new tattoo here:</h1>
+<br />
 
 <form method="post" action="/tattoos">
-<p>Image: <input type="text" name="image"></p>
-<p>Size: <select type ="text" name="size">
-    <option selected disabled hidden>select</option>
-    <option value="small">small</option>
-    <option value="medium">medium</option>
-    <option value="large">large</option>
-    <option value="extra-large">extra-large</option>
-</select>
-<p>Color: <input type="text" name="color"></p>
-<p>Artist's name: <input type="text" name="artist_name"></p>
-<input type="submit" value="Log tattoo">
+    <p><strong>Tattoo*: </strong><input type="text" name="image"></p>
+    <p><strong>Size*: </strong><select type ="text" name="size">
+        <option selected disabled hidden>select</option>
+        <option value="small">small</option>
+        <option value="medium">medium</option>
+        <option value="large">large</option>
+        <option value="extra-large">extra-large</option>
+    </select></p>
+    <p><strong>Colors*: </strong><input type="text" name="color"></p>
+    <p><strong>Style: </strong><input type="text" name="style"></p>
+    <p><strong>Placement*: </strong><input type="text" name="placement"></p>
+    <p><strong>Description:</strong></p>
+    <p><textarea name="description"></textarea></p>
+    <p><strong>Artist's name*: </strong><select name="artist_id">
+        <option selected disabled hidden>find your artist</option>
+        <% @artists.each do |artist|  %>
+        <option value=" <%= artist.id %> "> <%= artist.name %> </option> 
+        <% end %>
+        </select> </p>
+    <p><i>Or, if your artist isn't yet listed, add their name here:</i></p>
+    <p><i><strong>Add artist name: </strong></i><input type="text" name="name_of_artist"></p>
+    <br><p><input type="submit" value="Log tattoo"></p>
 </form>
+
+

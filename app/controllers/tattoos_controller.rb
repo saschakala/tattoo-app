@@ -10,6 +10,7 @@ class TattoosController < ApplicationController
   # # GET: /tattoos/new
   get "/tattoos/new" do
     redirect_if_not_logged_in
+    @artists = Artist.all
     erb :"/tattoos/new"
   end
 
@@ -19,7 +20,8 @@ class TattoosController < ApplicationController
     if tattoo.save
       redirect "/tattoos/#{tattoo.id}"
     else
-      erb :"/tattoos/new" #fix to show error messages
+      flash[:new_tat_issue] = "You've left a required field blank."
+      redirect "/tattoos/new" #fix to show error messages
     end
   end
 
@@ -48,6 +50,7 @@ class TattoosController < ApplicationController
     if @tat.update(params)
         redirect "/tattoos/#{@tat.id}"
     else
+      flash[:new_tat_issue] = "You've left a required field blank."
       redirect "tattoos/new"
     end
   end

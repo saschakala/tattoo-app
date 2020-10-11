@@ -1,20 +1,41 @@
 <h3> <%= @tat.image %> tattoo </h3><br>
 
-    <p>Size: <%= @tat.size %> </p>
-    <p>Color: <%= @tat.color %> </p>
-    <p>Artist: 
-        <a href="/artists/<%= @tat.artist.id %>"> <%= @tat.artist.name %> </a>
-    </p>
+    <p><strong>Size: </strong><%= @tat.size %> </p>
+    <p><strong>Color: </strong><%= @tat.color %> </p>
 
-    <% if @tat.artist_commentary != " " %>
-    <p> Artist's notes: <%= @tat.artist_commentary %></p>
+    <% if !!@tat.style == true %>
+        <p><strong>Style: </strong><%= @tat.style %> </p>
+    <% end %>
+
+
+    <p><strong>Placement: </strong><%= @tat.placement %> </p>
+
+    <% !!if @tat.description == true %>
+        <p><strong>Description: </strong><%= @tat.description %> </p>
+    <% end %>
+
+<% case %>
+    <% when !!@tat.artist == true %>
+        <p><strong>Artist: </strong>
+            <a href="/artists/<%= @tat.artist_id %>"> <%= @tat.artist.name %> </a>
+        </p>
+    <% when !!@tat.name_of_artist == true %>
+        <p><strong> Artist's name: </strong> <%= @tat.name_of_artist%></p>
+    <% end %>
+   
+
+   
+
+
+    <% if !!@tat.artist_commentary == true %>
+        <p> Artist's notes: <%= @tat.artist_commentary %></p>
     <% end %>
 
 <% case %>
 <% when user_logged_in? %>
     <% if @tat.user_id == current_user.id  %>
         <h3> <a href="/tattoos/ <%= @tat.id %> /edit">Edit this listing</a></h3>
-        <form method="post" action="/tattoos/<%= @tat.id %>/delete">
+        <form method="post" action="/tattoos/<%= @tat.id %>">
         <input type="hidden" id="hidden" name="_method" value="delete">
         <input type="submit" value="Delete this listing">
         <% end %>

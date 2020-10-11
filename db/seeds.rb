@@ -13,7 +13,8 @@ end
 15.times do
     Tattoo.create(image: Faker::Games::Zelda.character, size: ["small", "medium", "large"].sample, 
     color: ["red", "black and white", "blue", "purple"].sample, 
-    user_id: rand(1..5), artist_id: rand(1..5))
+    user_id: rand(1..5), artist_id: rand(1..5), style: ["neoclassical", "watercolor", "realism", "portraiture", "manga"].sample,
+    placement: ["ribs", "foot", "back", "thigh", "shoulder"].sample)
 end
 
 # 5.times do
@@ -27,4 +28,3 @@ end
 #     color: ["red", "black and white", "blue", "purple"].sample, 
 #     artist_name: Faker::FunnyName.three_word_name, user_id: 3,)
 # end
-
