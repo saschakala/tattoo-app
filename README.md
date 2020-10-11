@@ -1,5 +1,5 @@
 
-# TattooApp - A Sinatra Project
+# TattooApp - Sinatra App
 
 ## Description
 This database was created with the intention of connecting tattoo enthusiasts with the artists who decorate them (because what this world truly needs is one more social media app). 
