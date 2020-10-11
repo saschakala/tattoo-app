@@ -35,6 +35,7 @@ class TattoosController < ApplicationController
   # # GET: /tattoos/5/edit
   get "/tattoos/:id/edit" do
     redirect_if_not_logged_in
+    @artists = Artist.all
     @tat = Tattoo.find_by_id(params[:id])
     if @tat.user_id == current_user.id
       erb :"/tattoos/edit"

@@ -1,7 +1,15 @@
 <h1>A list of all the tattoos currently logged:</h1>
+<br />
     <ul>
         <% @tattoos.each do |tattoo| %>
-            <li> <a href="/tattoos/<%=tattoo.id%>"> <%= tattoo.image %> </a> </li>
+            <li> <a href="/tattoos/<%=tattoo.id%>"> <%= tattoo.image %> </a> by artist, 
+            <% if !!tattoo.artist == true %>
+                <a href="/artists/<%= tattoo.artist_id %>"> <%= tattoo.artist.name %> </a>
+            <% elsif !!tattoo.name_of_artist == true %>
+                <%= tattoo.name_of_artist %>
+            <% end %>
+            </li>
+            <br />
         <% end %>
     </ul>   
 

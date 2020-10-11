@@ -1,11 +1,12 @@
-<h1>About artist <%= @artist.name %> </h1>
+<h1>About the Artist </h1>
 <br>
+<h2><%= @artist.name %></h2>
 
 <p>Years of tattooing experience: <%= @artist.years_experience%></p>
 <p>Hourly rate: $ <%= @artist.price_hourly%></p>
 <p>Specializes in: <%= @artist.specializes_in%></p>
 
-<h3>List of tattoos:</h3>
+<h3>Complete Tattoos:</h3>
 <ul>
 <% @artist.tattoos.each do |tattoo| %>
     <li> <a href="/tattoos/<%= tattoo.id %>"> <%= tattoo.image %>  </a>

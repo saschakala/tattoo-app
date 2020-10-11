@@ -1,7 +1,13 @@
 class ArtistsController < ApplicationController
 
+  get "/artists" do
+    redirect_if_not_logged_in
+    @artists = Artist.all
+    erb :"/artists/index"
+  end
+  
   get "/artists/signup" do
-      # redirect_if_logged_in
+      redirect_if_logged_in
       erb :"/artists/signup"
     end
   

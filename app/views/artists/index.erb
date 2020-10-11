@@ -1,0 +1,15 @@
+<h1>A list of all the artists in the TattooApp community:</h1>
+<br />
+    <ul>
+        <% @artists.each do |artist| %>
+            <li> <a href="/artists/<%=artist.id%>"> <%= artist.name %> </a> 
+            </li>
+            <br />
+        <% end %>
+    </ul>   
+
+<% if user_logged_in? %>
+    <h2>
+        <a href="/tattoos/new">Log new tattoo</a>
+    </h2>
+<% end %>
