@@ -1,37 +1,17 @@
-# class ArtisTsController < ApplicationController
+class ArtistsController < ApplicationController
 
-#   # GET: /artists
-#   get "/artists" do
-#     erb :"/artists/index.html"
-#   end
-
-#   # GET: /artists/new
-#   get "/artists/new" do
-#     erb :"/artists/new.html"
-#   end
-
-#   # POST: /artists
-#   post "/artists" do
-#     redirect "/artists"
-#   end
-
-#   # GET: /artists/5
-#   get "/artists/:id" do
-#     erb :"/artists/show.html"
-#   end
-
-#   # GET: /artists/5/edit
-#   get "/artists/:id/edit" do
-#     erb :"/artists/edit.html"
-#   end
-
-#   # PATCH: /artists/5
-#   patch "/artists/:id" do
-#     redirect "/artists/:id"
-#   end
-
-#   # DELETE: /artists/5/delete
-#   delete "/artists/:id/delete" do
-#     redirect "/artists"
-#   end
-# end
+    get "/artists/signup" do
+        # redirect_if_logged_in
+        erb :"/artists/signup"
+      end
+    
+      post "/artists" do
+        @artist = Artist.new(params)
+        if @artist && @artist.save #if no creation errors and it saves, log user in
+          session[:artist_id] = @artist.id
+          redirect '/tattoos'
+        else
+          erb :"artists/signup" #add error messages to sign up page for when there's a sign up error
+        end
+      end
+    end

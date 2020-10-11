@@ -1,0 +1,19 @@
+<% if @artist && @artist.errors %>
+    <% @artist.errors.full_messages.each do | error | %>
+        <p><%= error %></p>
+        
+    <% end %>
+<% end %>
+
+<h1>Sign up here as a doer of tattoos</h1>
+<form method="POST" action="/artists">
+    <p>Name: <input type="text" name="name"></p>
+    <p>Years of experience: <input type="integer" name="years_experience"></p>
+    <p>Hourly rate: <input type="integer" name="price_hourly"></p>
+    <p>Speciality or style: <input type="text" name="specializes_in"></p>
+    <p>Username: <input type="text" name="username"></p>
+    <p>Email: <input type="text" name="email"></p>
+    <p>Password: <input type="password" name="password"></p>
+    <input type="hidden" name="class" value="artist">
+    <input type="submit" value="Sign me up">
+</form>

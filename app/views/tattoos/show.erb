@@ -6,7 +6,7 @@
 
 <% if @tat.user_id == current_user.id  %>
     <h3> <a href="/tattoos/ <%= @tat.id %> /edit">Edit this listing</a></h3>
-    <form method="post" action="/tattoos/<%= @tat.id %>">
+    <form method="post" action="/tattoos/<%= @tat.id %>/delete">
     <input type="hidden" id="hidden" name="_method" value="delete">
     <input type="submit" value="Delete this listing">
 </form>
