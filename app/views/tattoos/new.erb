@@ -15,7 +15,7 @@
     <p><strong>Placement*: </strong><input type="text" name="placement"></p>
     <p><strong>Description:</strong></p>
     <p><textarea name="description"></textarea></p>
-    <p><strong>Artist's name*: </strong><select name="artist_id">
+    <p><strong>Artist's name: </strong><select name="artist_id">
         <option selected disabled hidden>find your artist</option>
         <% @artists.each do |artist|  %>
         <option value=" <%= artist.id %> "> <%= artist.name %> </option> 

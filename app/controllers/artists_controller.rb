@@ -17,7 +17,7 @@ class ArtistsController < ApplicationController
       session[:artist_id] = @artist.id
       redirect '/tattoos'
     else
-      erb :"artists/signup" #add error messages to sign up page for when there's a sign up error
+      erb :"artists/signup" 
     end
   end
 

@@ -3,7 +3,7 @@ class TattoosController < ApplicationController
   # GET: /tattoos
   get "/tattoos" do
     redirect_if_not_logged_in
-    @tattoos = Tattoo.all
+    @tattoos = Tattoo.sort
     erb :"/tattoos/index"
   end
 

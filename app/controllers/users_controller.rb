@@ -12,7 +12,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect '/tattoos'
     else
-      erb :"users/signup" #add error messages to sign up page for when there's a sign up error
+      erb :"users/signup" 
     end
   end
 
