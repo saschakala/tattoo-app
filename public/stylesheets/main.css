@@ -13,7 +13,7 @@
 
   /* --- Welcome Page Styles --- */
   body {
-    background-color: purple;
+    background-color: lightcoral;
     color: #333;
     font-family: Sans-Serif;
     line-height: 18px;
@@ -28,6 +28,11 @@
     max-width: 960px;
     padding: 2.25%; /* 18px / 800px */
     width: 85%;
+  }
+
+  #flash_error {
+    background-color:  #fff;
+    color: red;
   }
 
   h1 {
