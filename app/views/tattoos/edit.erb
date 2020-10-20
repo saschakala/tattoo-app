@@ -17,6 +17,13 @@
         <p><strong>Placement: </strong><%= @tat.placement %></p>
         <p><strong>Description: </strong></p>
         <p><textarea name="description"><%= @tat.description %></textarea> </p>
-        <p><strong>Artist's name: </strong> <a href="/artists/<%=@tat.artist.id%>"> <%= @tat.artist.name %> </a> </p>
+        <p><strong>Artist's name: </strong> 
+        
+            <% if !!@tat.artist == true %>
+                <a href="/artists/<%=@tat.artist.id%>"> <%= @tat.artist.name %> </a>
+            <% elsif !!@tat.name_of_artist == true %>
+                <%= @tat.name_of_artist %>
+            <% end %>
+         </p>
         <input type="submit" value="Update tattoo">
 </form>
